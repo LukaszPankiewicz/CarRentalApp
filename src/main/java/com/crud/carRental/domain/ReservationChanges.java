@@ -11,7 +11,8 @@ public class ReservationChanges {
 
     private Long id;
     private Date dateChange;
-    private String who;
+    private Long oldReservationId;
+    private Long newReservationId;
     private Reservation reservation;
 
     @Id
@@ -28,9 +29,15 @@ public class ReservationChanges {
     }
 
     @NonNull
-    @Column(name = "WHO")
-    public String getWho() {
-        return who;
+    @Column(name = "OLDRESERVATIONID")
+    public Long getOldReservationId() {
+        return oldReservationId;
+    }
+
+    @NonNull
+    @Column(name = "NEWRESERVATIONID")
+    public Long getNewReservationId() {
+        return newReservationId;
     }
 
     @ManyToOne
@@ -47,8 +54,12 @@ public class ReservationChanges {
         this.dateChange = dateChange;
     }
 
-    public void setWho(String who) {
-        this.who = who;
+    public void setOldReservationId(Long oldReservationId) {
+        this.oldReservationId = oldReservationId;
+    }
+
+    public void setNewReservationId(Long newReservationId) {
+        this.newReservationId = newReservationId;
     }
 
     public void setReservation(Reservation reservation) {

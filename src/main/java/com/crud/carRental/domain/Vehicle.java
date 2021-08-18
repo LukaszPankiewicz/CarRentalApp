@@ -15,8 +15,8 @@ public class Vehicle {
     private String brand;
     private String model;
     private BigDecimal dailyPrice;
+    private String vehicleAvailability;
     private VehicleLocation vehicleLocation;
-    private VehicleStatus vehicleStatus;
     private List<Reservation> reservation;
     private List<VehicleParam> vehicleParams;
 
@@ -47,17 +47,17 @@ public class Vehicle {
         return dailyPrice;
     }
 
+    @Column(name = "VEHICLEAVAILABILITY")
+    public String getVehicleAvailability() {
+        return vehicleAvailability;
+    }
+
     @ManyToOne
     @JoinColumn(name = "VEHICLELOCATION_ID")
     public VehicleLocation getVehicleLocation() {
         return vehicleLocation;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "VEHICLESTATUS_ID")
-    public VehicleStatus getVehicleStatus() {
-        return vehicleStatus;
-    }
 
     @OneToMany(
             targetEntity = Reservation.class,
@@ -107,11 +107,12 @@ public class Vehicle {
         this.dailyPrice = dailyPrice;
     }
 
+    public void setVehicleAvailability(String vehicleAvailability) {
+        this.vehicleAvailability = vehicleAvailability;
+    }
+
     public void setVehicleLocation(VehicleLocation vehicleLocation) {
         this.vehicleLocation = vehicleLocation;
     }
 
-    public void setVehicleStatus(VehicleStatus vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
-    }
 }
