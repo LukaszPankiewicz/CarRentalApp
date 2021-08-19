@@ -32,7 +32,7 @@ public class Vehicle {
     public Vehicle(Long id, String registration, String brand, String model, BigDecimal dailyPrice, String vehicleAvailability) {
     }
 
-    public Vehicle(Long id, String registration, String brand, String model, BigDecimal dailyPrice, String vehicleAvailability, VehicleLocation vehicleLocation, List<Reservation> reservation, List<VehicleParam> vehicleParams) {
+    public Vehicle() {
 
     }
 

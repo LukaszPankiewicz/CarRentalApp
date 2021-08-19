@@ -23,8 +23,8 @@ public class ReservationDto {
     private Date startDate;
     private Date returnDate;
     private BigDecimal reservationCost;
-    private Customer customer;
-    private Vehicle vehicle;
+    private Long carId;
+    private Long customerId;
     private VehicleLocation vehicleLocation;
     private List<ReservationChanges> reservationChanges;
 }

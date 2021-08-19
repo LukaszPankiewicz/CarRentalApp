@@ -4,6 +4,7 @@ import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,19 +15,23 @@ public class Reservation {
     private Long id;
     private Date startDate;
     private Date returnDate;
-    private BigDecimal reservationCost;
+    private BigDecimal totalCost;
+    private Long duration;
     private Customer customer;
     private Vehicle vehicle;
     private VehicleLocation vehicleLocation;
     private List<ReservationChanges> reservationChanges;
 
-    public Reservation(Long id, Date startDate, Date returnDate, BigDecimal reservationCost, Customer customer, Vehicle vehicle, List<ReservationChanges> reservationChanges, VehicleLocation vehicleLocation) {
+    public Reservation(Long id, Date startDate, Date returnDate, BigDecimal totalCost, Customer customer, Vehicle vehicle, List<ReservationChanges> reservationChanges, VehicleLocation vehicleLocation) {
         this.id = this.id;
         this.startDate = startDate;
         this.returnDate = returnDate;
-        this.reservationCost = reservationCost;
+        this.totalCost = totalCost;
     }
 
+    public Reservation(Date startDate, Date returnDate, Customer customer, Vehicle vehicle) {
+
+    }
     public Reservation() {
 
     }
@@ -51,9 +56,15 @@ public class Reservation {
     }
 
     @NonNull
-    @Column(name = "RESERVATIONCOST")
-    public BigDecimal getReservationCost() {
-        return reservationCost;
+    @Column(name = "TOTALCOST")
+    public BigDecimal getTotalCost() {
+        return totalCost;
+    }
+
+    @NonNull
+    @Column(name = "DURATION")
+    public Long getDuration() {
+        return duration;
     }
 
     @ManyToOne
@@ -88,6 +99,10 @@ public class Reservation {
         this.id = id;
     }
 
+    public void setDuration(Long duration) {
+        this.duration = duration;
+    }
+
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
@@ -96,8 +111,8 @@ public class Reservation {
         this.returnDate = returnDate;
     }
 
-    public void setReservationCost(BigDecimal reservationCost) {
-        this.reservationCost = reservationCost;
+    public void setTotalCost(BigDecimal totalCost) {
+        this.totalCost = totalCost;
     }
 
     public void setCustomer(Customer customer) {
