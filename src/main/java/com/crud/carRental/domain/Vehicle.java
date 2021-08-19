@@ -20,6 +20,22 @@ public class Vehicle {
     private List<Reservation> reservation;
     private List<VehicleParam> vehicleParams;
 
+    public Vehicle(Long id, String registration, String brand, String model, BigDecimal dailyPrice, String vehicleAvailability, VehicleLocation vehicleLocation) {
+        this.id = id;
+        this.registration = registration;
+        this.brand = brand;
+        this.model = model;
+        this.dailyPrice = dailyPrice;
+        this.vehicleAvailability = vehicleAvailability;
+    }
+
+    public Vehicle(Long id, String registration, String brand, String model, BigDecimal dailyPrice, String vehicleAvailability) {
+    }
+
+    public Vehicle(Long id, String registration, String brand, String model, BigDecimal dailyPrice, String vehicleAvailability, VehicleLocation vehicleLocation, List<Reservation> reservation, List<VehicleParam> vehicleParams) {
+
+    }
+
     @Id
     @NonNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)

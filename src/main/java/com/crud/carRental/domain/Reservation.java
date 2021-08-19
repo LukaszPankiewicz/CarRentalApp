@@ -20,6 +20,17 @@ public class Reservation {
     private VehicleLocation vehicleLocation;
     private List<ReservationChanges> reservationChanges;
 
+    public Reservation(Long id, Date startDate, Date returnDate, BigDecimal reservationCost, Customer customer, Vehicle vehicle, List<ReservationChanges> reservationChanges, VehicleLocation vehicleLocation) {
+        this.id = this.id;
+        this.startDate = startDate;
+        this.returnDate = returnDate;
+        this.reservationCost = reservationCost;
+    }
+
+    public Reservation() {
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull

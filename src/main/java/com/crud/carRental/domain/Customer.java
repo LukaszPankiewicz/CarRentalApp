@@ -17,9 +17,17 @@ public class Customer {
     private int phoneNumber;
     private String login;
     private String password;
-    private Date birthDate;
-    private int pesel;
     private List<Reservation> reservation;
+
+    public Customer(String firstName, String lastName, String email, int phoneNumber, String login, String password) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.login = login;
+        this.password = password;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,18 +72,6 @@ public class Customer {
         return password;
     }
 
-    @NonNull
-    @Column(name = "BIRTHDATE")
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    @NonNull
-    @Column(name = "PESEL")
-    public int getPesel() {
-        return pesel;
-    }
-
     @OneToMany(
             targetEntity = Reservation.class,
             mappedBy = "reservation",
@@ -118,11 +114,4 @@ public class Customer {
         this.password = password;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setPesel(int pesel) {
-        this.pesel = pesel;
-    }
 }
